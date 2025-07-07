@@ -30,7 +30,7 @@ export async function middleware(request: NextRequest) {
   }
 
   // Si hay una sesión y el usuario intenta acceder a la página de inicio, redirigir al dashboard
-  if (session && (request.nextUrl.pathname === '/' || request.nextUrl.pathname === '/login')) {
+  if (session && (request.nextUrl.pathname === '/' || request.nextUrl.pathname === '/')) {
     return NextResponse.redirect(new URL('/dashboard', request.url));
   }
 
