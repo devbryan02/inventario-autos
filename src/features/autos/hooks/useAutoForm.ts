@@ -30,7 +30,7 @@ const initialFormState: FormState = {
     numero_serie: '',
     observaciones: '',
     fecha_ingreso: new Date().toISOString().split('T')[0],
-    estado: 'listo',  // Ahora TypeScript sabe que este valor es válido
+    estado: 'listo',  
 };
 
 export function useAutoForm(autoId?: number) {

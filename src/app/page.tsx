@@ -1,25 +1,22 @@
-
 "use client";
 
-
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense, JSX } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Car, Lock, UserPlus } from "lucide-react";
 import EnhancedLoginForm from "@/features/admin/AdminLoginFormStyled";
 import EnhancedSignUpForm from "@/features/admin/AdminSingUpFormStyled";
 import { supabase } from "@/lib/supabase";
 
-export default function Home() {
-
-  const [activeTab, setActiveTab] = useState("login");
-  const [isLoading, setIsLoading] = useState(true);
+function HomeContent(): JSX.Element {
+  const [activeTab, setActiveTab] = useState<string>("login");
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const router = useRouter();
   const searchParams = useSearchParams();
-  const redirectedFrom = searchParams.get('redirectedFrom');
+  const redirectedFrom: string | null = searchParams.get('redirectedFrom');
 
   // Verificar sesión al cargar la página
   useEffect(() => {
-    const checkSession = async () => {
+    const checkSession = async (): Promise<void> => {
       setIsLoading(true);
       const { data: { session } } = await supabase.auth.getSession();
 
@@ -44,7 +41,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-base-300 flex flex-col">
-
       {redirectedFrom && (
         <div className="alert alert-warning shadow-lg max-w-md mx-auto mt-4">
           <div>
@@ -219,5 +215,17 @@ export default function Home() {
         </aside>
       </footer>
     </div>
+  );
+}
+
+export default function Home(): JSX.Element {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-base-200">
+        <span className="loading loading-spinner loading-lg text-primary"></span>
+      </div>
+    }>
+      <HomeContent />
+    </Suspense>
   );
 }

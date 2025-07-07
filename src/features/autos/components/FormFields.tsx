@@ -12,10 +12,25 @@ import {
   CalendarDays,
   ClipboardList
 } from "lucide-react";
-import { Auto } from "../types";
+
+
+interface FormState {
+    marca: string;
+    modelo: string;
+    anio: number;
+    color: string | null;
+    kilometraje: number | null;
+    precio_compra: number | null;
+    precio_venta: number | null;
+    numero_serie: string | null;
+    observaciones: string | null;
+    fecha_ingreso: string;
+    estado: "listo" | "reparacion" | "vendido" | "entregado";
+}
+
 
 interface FormFieldsProps {
-    formData: Auto;
+    formData: FormState;
     handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
     isEdit?: boolean;
 }
