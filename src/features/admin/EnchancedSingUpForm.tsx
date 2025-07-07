@@ -1,6 +1,6 @@
 import AdminSignUpFormStyled from './AdminSingUpFormStyled';
 
-function EnhancedSignUpForm() {
+export function EnhancedSignUpForm() {
   // Componente envoltorio para mejorar el diseño del AdminSignUpForm existente
   return (
     <div className="w-full">

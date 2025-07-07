@@ -5,7 +5,6 @@ import { fetchAutos } from '@/features/autos/services';
 import MantenimientoList from "@/features/mantenimiento/components/MantenimientoList";
 import { Car, History } from 'lucide-react';
 import { AutoConImagenes } from '@/features/autos/types';
-import Error from 'next/error';
 
 function MantenimientoPage() {
     const [autos, setAutos] = useState<AutoConImagenes[]>([]);

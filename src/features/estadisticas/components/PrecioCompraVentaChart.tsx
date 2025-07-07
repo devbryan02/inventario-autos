@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, JSX } from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
@@ -15,7 +15,20 @@ interface PrecioCompraVentaChartProps {
   onRefresh?: () => void;
 }
 
-export const CustomTooltip = ({ active, payload, label }: any) => {
+interface TooltipProps {
+  active?: boolean;
+  payload?: Array<{
+    payload: {
+      nombre: string;
+      precio_compra: number;
+      precio_venta: number;
+      diferencia: number;
+      porcentajeGanancia: number;
+    };
+  }>;
+}
+
+export const CustomTooltip = ({ active, payload }: TooltipProps): JSX.Element | null => {
   if (active && payload && payload.length) {
     const item = payload[0].payload;
     return (

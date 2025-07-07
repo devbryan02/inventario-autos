@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import Image from "next/image";
 import { Car, DollarSign, Tag, ImagePlus, FileText, CalendarDays, ClipboardList, ArrowLeft, Image as ImageIcon, Edit } from "lucide-react";
 import { fetchAutoById } from "@/features/autos/services";
