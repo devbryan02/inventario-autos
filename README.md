@@ -13,6 +13,32 @@ Inventario Autos es una aplicación desarrollada en TypeScript para la gestión 
 - **Interfaz amigable:** Diseño intuitivo, fácil de usar para cualquier usuario.
 - **Desarrollado en TypeScript:** Código robusto, seguro y escalable.
 
+## 🗂️ Estructura del Proyecto
+
+```
+inventario-autos/
+├── public/
+│   └── preview.png
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── styles/
+│   └── utils/
+├── .env
+├── package.json
+├── tsconfig.json
+└── README.md
+```
+
+- **public/**: Archivos estáticos y recursos públicos.
+- **src/components/**: Componentes reutilizables de React.
+- **src/pages/**: Páginas principales de la aplicación (Next.js).
+- **src/styles/**: Archivos de estilos (CSS/SCSS).
+- **src/utils/**: Funciones utilitarias y helpers.
+- **.env**: Variables de entorno.
+- **package.json**: Dependencias y scripts del proyecto.
+- **tsconfig.json**: Configuración de TypeScript.
+
 ## 💡 ¿Por qué este proyecto?
 
 Este sistema nace de la necesidad de digitalizar y optimizar procesos en el sector automotriz, permitiendo mayor control, rapidez y precisión en la gestión de inventarios. Es ideal para incluir en mi CV, ya que refleja habilidades en:
@@ -25,12 +51,9 @@ Este sistema nace de la necesidad de digitalizar y optimizar procesos en el sect
 ## 🛠️ Tecnologías Utilizadas
 
 - **Lenguaje principal:** TypeScript (99.7%)
-- Frameworks y librerías según el stack del proyecto (describir aquí si usas React, Node.js, Express, Prisma, etc).
-- Otras herramientas: (agregar si corresponde, como Docker, Jest, etc).
-
-## 📸 Capturas de pantalla
-
-_Agrega aquí screenshots de la interfaz o ejemplos del sistema en funcionamiento para dar mayor valor visual._
+- NextJs, ReactJs, Daisy UI y como servicio de backend Supabase(PostgreSQL).
+- Visual Studio Code
+- Git/GitHub
 
 ## 🏗️ Instalación y Uso
 
@@ -50,13 +73,6 @@ npm run start
 ## 📄 Ejemplo de Uso
 
 Puedes registrar un auto nuevo, buscarlo, actualizar sus datos o eliminarlo del inventario en pocos pasos, todo desde una interfaz intuitiva.
-
-## 📈 Valor para tu CV
-
-- Proyecto real y aplicable.
-- Demuestra manejo avanzado de TypeScript y gestión de datos.
-- Enfoque en experiencia de usuario y buenas prácticas de desarrollo.
-- Código limpio, escalable y bien documentado.
 
 ## 🧑‍💻 Autor
 
