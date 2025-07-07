@@ -310,7 +310,7 @@ export function MantenimientoForm({
         
         <button 
           type="submit" 
-          className={`btn ${isEditMode ? 'btn-info' : 'btn-primary'} text-white shadow-md hover:shadow-lg transition-all duration-300`}
+          className={`btn ${isEditMode ? 'btn-info' : 'btn-primary'} shadow-md hover:shadow-lg transition-all duration-300`}
           disabled={submitting}
         >
           {submitting ? (

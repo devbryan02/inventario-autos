@@ -119,7 +119,7 @@ export function MantenimientoList({ autoId, autoMarca, autoModelo }: Mantenimien
           
           {/* Botón para agregar nuevo mantenimiento */}
           <button 
-            className="btn btn-primary btn-sm md:w-auto gap-1"
+            className="btn btn-primary md:w-auto gap-1"
             onClick={() => {
               setEditingMantenimiento(null);
               setShowForm(true);
