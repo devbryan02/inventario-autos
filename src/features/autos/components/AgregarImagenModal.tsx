@@ -87,9 +87,9 @@ function AgregarImagenModal({ auto, isOpen, onClose, onSuccess }: AgregarImagenM
                 onClose();
             }, 1500);
 
-        } catch (err: any) {
+        } catch (err) {
             console.error('Error detallado:', err);
-            setError(`Error: ${err.message}`);
+            setError(`Error al subir la imagen: ${err instanceof Error ? err.message : 'Error desconocido'}`);
         } finally {
             setLoading(false);
         }

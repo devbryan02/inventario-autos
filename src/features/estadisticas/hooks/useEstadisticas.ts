@@ -14,8 +14,8 @@ export function useEstadisticas() {
       setError(null);
       const data = await fetchPreciosCompraVenta();
       setPreciosData(data);
-    } catch (err: any) {
-      setError(err.message || 'Error al cargar datos de precios');
+    } catch (err) {
+      setError("Error al cargar los datos de precios. Por favor, inténtalo de nuevo más tarde.");
       console.error('Error cargando datos de precios:', err);
     } finally {
       setLoading(false);
@@ -28,8 +28,8 @@ export function useEstadisticas() {
       setError(null);
       const data = await fetchEstadisticasGenerales();
       setEstadisticasGenerales(data);
-    } catch (err: any) {
-      setError(err.message || 'Error al cargar estadísticas generales');
+    } catch (err) {
+      setError("Error al cargar las estadísticas generales. Por favor, inténtalo de nuevo más tarde.");
       console.error('Error cargando estadísticas generales:', err);
     } finally {
       setLoading(false);

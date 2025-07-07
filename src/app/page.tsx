@@ -4,8 +4,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import Link from "next/link";
-import { Car, Lock, UserPlus, MoveRight } from "lucide-react";
+import { Car, Lock, UserPlus } from "lucide-react";
 import EnhancedLoginForm from "@/features/admin/AdminLoginFormStyled";
 import EnhancedSignUpForm from "@/features/admin/AdminSingUpFormStyled";
 import { supabase } from "@/lib/supabase";

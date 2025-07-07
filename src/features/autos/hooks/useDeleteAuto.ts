@@ -50,7 +50,7 @@ export const useDeleteAuto = (onSuccess?: () => void) => {
 
         if (onSuccess) onSuccess();
       }
-    } catch (error: any) {
+    } catch (error) {
       console.error("Error al eliminar vehículo:", error);
 
       Swal.fire({
@@ -58,7 +58,7 @@ export const useDeleteAuto = (onSuccess?: () => void) => {
         position: 'bottom-end',
         icon: 'error',
         title: 'Error al eliminar',
-        text: error.message || 'No se pudo eliminar el vehículo',
+        text: 'Ocurrió un error al intentar eliminar el vehículo. Por favor, inténtalo de nuevo más tarde.',
         showConfirmButton: false,
         timer: 5000,
         timerProgressBar: true,

@@ -11,7 +11,7 @@ import EditarAutoForm from "@/features/autos/components/EditarAutoForm";
 import Link from "next/link";
 
 function VerDetallesAuto() {
-  const router = useRouter();
+
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -27,9 +27,9 @@ function VerDetallesAuto() {
         setLoading(true);
         const data = await fetchAutoById(Number(id));
         setAuto(data as AutoConImagenes);
-      } catch (err: any) {
+      } catch (err) {
         console.error("Error cargando detalles del auto:", err);
-        setError(err.message || "Error al cargar los detalles del vehículo");
+        setError("Error al cargar los detalles del vehículo. Por favor, inténtalo de nuevo más tarde.");
       } finally {
         setLoading(false);
       }

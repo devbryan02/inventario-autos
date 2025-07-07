@@ -14,6 +14,7 @@ import {
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/UserContext";
+import Image from "next/image";
 
 export default function DashboardLayout({
   children,
@@ -95,7 +96,7 @@ export default function DashboardLayout({
               <div className="avatar placeholder">
                 <div className="bg-neutral text-neutral-content rounded-full w-10 text-center p-1">
                   {userInfo.avatar_url ? (
-                    <img src={userInfo.avatar_url} alt={`${userInfo.nombre}`} />
+                    <Image src={userInfo.avatar_url} alt={`${userInfo.nombre}`} />
                   ) : (
                     <span className="text-lg">{userInfo.nombre.charAt(0)}{userInfo.apellido.charAt(0)}</span>
                   )}

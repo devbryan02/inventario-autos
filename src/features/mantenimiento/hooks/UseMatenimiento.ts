@@ -54,9 +54,9 @@ export function useMantenimiento({
       }
       
       setMantenimientos(data);
-    } catch (err: any) {
+    } catch (err) {
       console.error("Error cargando mantenimientos:", err);
-      setError(err.message || "Error al cargar los mantenimientos");
+      setError("Error al cargar los mantenimientos. Por favor, inténtalo de nuevo más tarde.");
     } finally {
       setLoading(false);
     }
@@ -94,9 +94,9 @@ export function useMantenimiento({
         return newMantenimiento;
       }
       return null;
-    } catch (err: any) {
+    } catch (err) {
       console.error("Error creando mantenimiento:", err);
-      setError(err.message || "Error al registrar el mantenimiento");
+      setError("Error al registrar el mantenimiento");
       
       // Notificación de error
       Swal.fire({
@@ -104,7 +104,7 @@ export function useMantenimiento({
         position: 'bottom-end',
         icon: 'error',
         title: 'Error',
-        text: err.message || "Error al registrar el mantenimiento",
+        text: "Error al registrar el mantenimiento",
         showConfirmButton: false,
         timer: 5000,
         timerProgressBar: true,
@@ -151,9 +151,9 @@ export function useMantenimiento({
         return updatedMantenimiento;
       }
       return null;
-    } catch (err: any) {
+    } catch (err) {
       console.error("Error actualizando mantenimiento:", err);
-      setError(err.message || "Error al actualizar el mantenimiento");
+      setError("Error al actualizar el mantenimiento");
       
       // Notificación de error
       Swal.fire({
@@ -161,7 +161,7 @@ export function useMantenimiento({
         position: 'bottom-end',
         icon: 'error',
         title: 'Error',
-        text: err.message || "Error al actualizar el mantenimiento",
+        text: "Error al actualizar el mantenimiento",
         showConfirmButton: false,
         timer: 5000,
         timerProgressBar: true,
@@ -216,9 +216,9 @@ export function useMantenimiento({
       });
       
       return true;
-    } catch (err: any) {
+    } catch (err) {
       console.error("Error eliminando mantenimiento:", err);
-      setError(err.message || "Error al eliminar el registro de mantenimiento");
+      setError("Error al eliminar el registro");
       
       // Notificación de error
       Swal.fire({
@@ -226,7 +226,7 @@ export function useMantenimiento({
         position: 'bottom-end',
         icon: 'error',
         title: 'Error',
-        text: err.message || "Error al eliminar el registro",
+        text: "Error al eliminar el registro",
         showConfirmButton: false,
         timer: 5000,
         timerProgressBar: true,

@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import {
     LayoutDashboard,
     Car,
-    Users,
     BarChart3,
     ArrowUp,
     ArrowDown,
@@ -14,10 +13,11 @@ import EstadisticasCard from '@/features/estadisticas/components/EstadisticasCar
 import InventariosState from '@/features/estadisticas/components/InventariosState';
 import { useAutos } from '@/features/autos/hooks/useAutos';
 import Link from 'next/link';
+import { Auto } from '@/features/autos/types';
 
 function DashboardPage() {
     const { autos, loading: autosLoading } = useAutos();
-    const [autosRecientes, setAutosRecientes] = useState<any[]>([]);
+    const [autosRecientes, setAutosRecientes] = useState<Auto[]>([]);
 
     // Calcular autos recientes
     useEffect(() => {

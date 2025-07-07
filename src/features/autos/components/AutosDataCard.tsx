@@ -11,7 +11,7 @@ import { AutoConImagenes } from '../types';
 
 function AutosDataCard() {
     const router = useRouter();
-    const { filteredAutos, autos, loading, error, searchTerm, setSearchTerm, setAutos, refreshAutos } = useAutos();
+    const { filteredAutos, autos, loading, error, searchTerm, setSearchTerm, refreshAutos } = useAutos();
     const { confirmAndDelete, loading: deleteLoading } = useDeleteAuto(() => refreshAutos());
 
     // Estado para controlar qué auto tiene el modal de mantenimiento abierto

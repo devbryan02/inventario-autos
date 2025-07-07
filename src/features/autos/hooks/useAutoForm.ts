@@ -151,11 +151,11 @@ export function useAutoForm(autoId?: number) {
                 });
                 router.push('/dashboard/autos'); // Redirigir a la lista de autos después de agregar
             }
-        } catch (error: any) {
+        } catch (error) {
             setState({
                 ...state,
                 loading: false,
-                error: error.message || "Ocurrió un error al procesar el formulario"
+                error: error instanceof Error ? error.message : "Error al procesar el formulario"
             });
             console.error("Error en el formulario:", error);
         }

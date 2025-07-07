@@ -2,6 +2,7 @@
 
 import { useUser } from "@/context/UserContext";
 import { User, Mail, Calendar, Shield } from "lucide-react";
+import Image from "next/image";
 
 function PerfilPage() {
     const { userInfo } = useUser();
@@ -34,7 +35,7 @@ function PerfilPage() {
                             <div className="avatar placeholder">
                                 <div className="bg-neutral text-neutral-content rounded-full w-24 h-24 flex justify-center items-center text-3xl">
                                     {userInfo.avatar_url ? (
-                                        <img
+                                        <Image
                                             src={userInfo.avatar_url}
                                             alt={`${userInfo.nombre}`}
                                             className="w-full h-full object-cover"

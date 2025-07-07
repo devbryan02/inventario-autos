@@ -1,6 +1,6 @@
 import AdminLoginFormStyled from "./AdminLoginFormStyled";
 
-function EnhancedLoginForm() {
+export function EnhancedLoginForm() {
   // Componente envoltorio para mejorar el diseño del AdminLoginForm existente
   return (
     <div className="w-full">

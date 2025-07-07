@@ -12,9 +12,10 @@ import {
   CalendarDays,
   ClipboardList
 } from "lucide-react";
+import { Auto } from "../types";
 
 interface FormFieldsProps {
-    formData: any;
+    formData: Auto;
     handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
     isEdit?: boolean;
 }

@@ -83,7 +83,7 @@ export const insertImageInAuto = async (imagen: Omit<ImagenAuto, 'id'>) => {
 
 export const updateAuto = async (id: number, updatedAuto: Partial<Auto>): Promise<AutoConImagenes> => {
   // Primero actualizamos el auto
-  const { data, error } = await supabase
+  const {error } = await supabase
     .from("autos")
     .update(updatedAuto)
     .eq("id", id)

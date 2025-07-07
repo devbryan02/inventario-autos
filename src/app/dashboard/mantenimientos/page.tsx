@@ -3,8 +3,9 @@
 import { useState, useEffect } from 'react';
 import { fetchAutos } from '@/features/autos/services';
 import MantenimientoList from "@/features/mantenimiento/components/MantenimientoList";
-import { Car, FilterIcon, History } from 'lucide-react';
+import { Car, History } from 'lucide-react';
 import { AutoConImagenes } from '@/features/autos/types';
+import Error from 'next/error';
 
 function MantenimientoPage() {
     const [autos, setAutos] = useState<AutoConImagenes[]>([]);
@@ -27,9 +28,9 @@ function MantenimientoPage() {
                 if (autosData.length > 0) {
                     setSelectedAutoId(autosData[0].id);
                 }
-            } catch (err: any) {
+            } catch (err) {
                 console.error('Error cargando autos:', err);
-                setError(err.message || 'Error al cargar los vehículos');
+                setError('Error al cargar los vehículos');
             } finally {
                 setLoading(false);
             }

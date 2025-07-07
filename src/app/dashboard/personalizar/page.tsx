@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { 
-  Settings, 
   Moon, 
   Sun, 
   Palette, 
@@ -60,21 +59,29 @@ export default function ThemeSelector() {
   };
   
   // Componente para renderizar cada tema
-  const ThemeButton = ({ themeName, label, Icon }: { themeName: string; label: string; Icon: any }) => (
-    <button
-      onClick={() => changeTheme(themeName)}
-      className={`flex items-center gap-2 p-3 rounded-lg transition-all ${
-        currentTheme === themeName 
-          ? 'bg-primary text-primary-content shadow-md' 
-          : 'bg-base-200 hover:bg-base-300'
-      }`}
-      aria-label={`Cambiar al tema ${label}`}
-    >
-      <Icon size={18} />
-      <span>{label}</span>
-      {currentTheme === themeName && <Check size={16} className="ml-auto" />}
-    </button>
-  );
+const ThemeButton = ({ 
+  themeName, 
+  label, 
+  Icon 
+}: { 
+  themeName: string; 
+  label: string; 
+  Icon: React.ComponentType<{ size?: number; className?: string }>; 
+}) => (
+  <button
+    onClick={() => changeTheme(themeName)}
+    className={`flex items-center gap-2 p-3 rounded-lg transition-all ${
+      currentTheme === themeName 
+        ? 'bg-primary text-primary-content shadow-md' 
+        : 'bg-base-200 hover:bg-base-300'
+    }`}
+    aria-label={`Cambiar al tema ${label}`}
+  >
+    <Icon size={18} />
+    <span>{label}</span>
+    {currentTheme === themeName && <Check size={16} className="ml-auto" />}
+  </button>
+);
   
   return (
     <div className="container mx-auto px-4 py-6">
