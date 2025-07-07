@@ -62,7 +62,6 @@ Puedes registrar un auto nuevo, buscarlo, actualizar sus datos o eliminarlo del 
 
 **Bryan (devbryan02)**
 - [GitHub](https://github.com/devbryan02)
-- [LinkedIn](#) _(agrega tu perfil si lo deseas)_
 
 ---
 
