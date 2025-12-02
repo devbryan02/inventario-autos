@@ -172,7 +172,7 @@ function HomeContent(): JSX.Element {
                   {activeTab === 'login' ? (
                     <EnhancedLoginForm />
                   ) : (
-                    null
+                    <EnhancedSignUpForm />
                   )}
                 </div>
 

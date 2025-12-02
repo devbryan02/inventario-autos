@@ -6,7 +6,7 @@ export async function fetchAutos(): Promise<AutoConImagenes[]> {
     .from("autos")
     .select(`
       *,
-      imagenes: imagenes_auto(*)
+      auto_imagenes(*)
     `)
     .order("created_at", { ascending: false });
 
@@ -17,10 +17,10 @@ export async function fetchAutos(): Promise<AutoConImagenes[]> {
 
   // Transformar el resultado para que coincida con el tipo AutoConImagenes
   const autosConImagenes = data.map(item => {
-    const { imagenes, ...auto } = item;
+    const { auto_imagenes, ...auto } = item;
     return {
       ...auto,
-      imagenes: imagenes as ImagenAuto[]
+      imagenes: auto_imagenes as ImagenAuto[]
     } as AutoConImagenes;
   });
 
@@ -32,7 +32,7 @@ export const fetchAutoById = async (id: number) => {
     .from('autos')
     .select(`
       *,
-      imagenes:imagenes_auto(*)
+      auto_imagenes(*)
     `)
     .eq('id', id)
     .single();
@@ -40,13 +40,12 @@ export const fetchAutoById = async (id: number) => {
   if (error) throw new Error(`Error al obtener el auto: ${error.message}`);
   
   // Transformar el resultado
-  const { imagenes, ...auto } = data;
+  const { auto_imagenes, ...auto } = data;
   return {
     ...auto,
-    imagenes: imagenes as ImagenAuto[]
+    imagenes: auto_imagenes as ImagenAuto[]
   } as AutoConImagenes;
 };
-
 
 export async function addAuto(newAuto: Auto): Promise<Auto | null> {
   const { data, error } = await supabase
@@ -67,7 +66,7 @@ export const insertImageInAuto = async (imagen: Omit<ImagenAuto, 'id'>) => {
   console.log("Intentando insertar imagen:", imagen);
   
   const { data, error } = await supabase
-    .from('imagenes_auto')
+    .from('auto_imagenes')
     .insert(imagen)
     .select();
 
@@ -83,7 +82,7 @@ export const insertImageInAuto = async (imagen: Omit<ImagenAuto, 'id'>) => {
 
 export const updateAuto = async (id: number, updatedAuto: Partial<Auto>): Promise<AutoConImagenes> => {
   // Primero actualizamos el auto
-  const {error } = await supabase
+  const { error } = await supabase
     .from("autos")
     .update(updatedAuto)
     .eq("id", id)
@@ -102,7 +101,7 @@ export const updateAuto = async (id: number, updatedAuto: Partial<Auto>): Promis
 export const deleteAuto = async (id: number): Promise<void> => {
   // Primero eliminamos todas las imágenes asociadas al auto
   const { error: imageError } = await supabase
-    .from("imagenes_auto")
+    .from("auto_imagenes")
     .delete()
     .eq("auto_id", id);
 
@@ -122,5 +121,3 @@ export const deleteAuto = async (id: number): Promise<void> => {
     throw new Error(`Error al eliminar el auto: ${error.message}`);
   }
 };
-
-
